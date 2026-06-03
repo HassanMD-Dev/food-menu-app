@@ -74,6 +74,7 @@ const searchHandler = async () => {
       text: "Please enter keyword to search",
       icon: "error",
     });
+    sideBar.innerHTML = "";
   } else {
     sideBar.innerHTML = searchHtmlUi.join("");
   }
