@@ -68,7 +68,15 @@ const searchHandler = async () => {
     data: { recipes },
   } = result;
   let searchHtmlUi = recipes.map((recipe) => itemFunc(recipe));
-  sideBar.innerHTML = searchHtmlUi.join("");
+  if (!searchVal?.trim()) {
+    sweetAlert({
+      title: "Error",
+      text: "Please enter keyword to search",
+      icon: "error",
+    });
+  } else {
+    sideBar.innerHTML = searchHtmlUi.join("");
+  }
 };
 const itemsDetails = async (elem) => {
   const id = elem.dataset.recipeId;
