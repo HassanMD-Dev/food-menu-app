@@ -108,7 +108,13 @@ const itemsDetails = async (elem) => {
 };
 searchBtn.addEventListener("click", searchHandler);
 sideBar.addEventListener("click", (e) => {
-  if (e.target.classList.contains("sideInner")) {
-    itemsDetails(e.target);
+  let item = e.target;
+
+  while (item && !item.classList.contains("sideInner")) {
+    item = item.parentElement;
+  }
+
+  if (item) {
+    itemsDetails(item);
   }
 });
